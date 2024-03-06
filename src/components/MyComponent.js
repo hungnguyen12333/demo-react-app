@@ -1,26 +1,47 @@
 import React from "react";
+import AddUser from "./AddUser";
+import ListUser from "./ListUser";
 
  class MyComponent extends React.Component {
 
     state = {
-        name:"hung",
-        age:'18',
-        address:'213123'
+       list:[
+        {
+            id:1,
+            name:"hung",
+            age:123
+        },
+        {
+            id:2,
+            name:"hung2",
+            age:1232
+        },
+        {
+            id:3,
+            name:"hung3",
+            age:1233
+        }
+       ]
     }
-    changeName= ()=>{
-        console.log(123123);
+    
+    addUser =  (user)=>{
+        console.log(user);
         this.setState({
-            name:"asdasdsa"
-        })
+            list:[...this.state.list,user]
+        })  
+    }
+
+    handleOnSubmit(e){
+        e.preventDefault();
+
     }
 
     render(){
         return (
             <div>
-                my first component asd
-                my name is {this.state.name}
-
-                <button onClick={this.changeName}>click</button>
+               <AddUser addUser={this.addUser} />
+                <ListUser listUsers={this.state.list}/>
+                
             </div>
         );
     }
