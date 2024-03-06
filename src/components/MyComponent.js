@@ -7,12 +7,16 @@ import React from "react";
         address:'213123'
     }
 
+    clicks(e){
+        console.log(123);
+    }
 
     render(){
         return (
             <div>
                 my first component asd
                 my name is {this.state.name}
+                <button onClick={this.clicks}>click</button>
             </div>
         );
     }
